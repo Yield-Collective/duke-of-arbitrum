@@ -3,6 +3,25 @@ import { ConnectButton } from "@/app/thirdweb";
 import { client } from "./client";
 import duke from "@public/duke.svg";
 import Link from 'next/link';
+import styles from "../styles/Home.module.css";
+import { useEffect, useState } from "react";
+
+
+const allowList = [
+  {
+    "address": "0xfba2e3bfde2dbb2c70dc79b4d7126b6190770f94",
+    "maxClaimable": "1500000"
+  },
+  {
+    "address": "0x6fb304644f3292331dba28d9114059fbbe90664c",
+    "maxClaimable": "1500000"
+  },
+  {
+    "address": "0x470d3f3072370a67727225ca3a3aea3cff8c439e",
+    "maxClaimable": "1500000"
+  }
+];
+
 
 export default function Home() {
   return (
@@ -19,7 +38,7 @@ export default function Home() {
             }}
           />
         </a>
-        <a href="https://app.uniswap.org/swap?outputCurrency=0x9623063377AD1B27544C965cCd7342f7EA7e88C7&chain=arbitrum" className="text-white-900 text-lg font-semibold">Buy Now</a>
+        <a href="https://app.uniswap.org/swap?outputCurrency=0xee095Eb6354473E4066054c5B06c82E99fa2b96e&chain=arbitrum" className="text-white-900 text-lg font-semibold">Buy Now</a>
       </header>
 
       <main className="flex-grow p-4 pb-10 relative z-10 flex">
@@ -53,8 +72,8 @@ export default function Home() {
       </div>
 
       <footer className="bg-gray-800 text-white p-4 text-center relative z-10">
-        <p>CA: 0x6eBFC4f2B92526d6Aa6F75153b66D1E119696b27</p>
-        <a href="https://arbiscan.io/token/0x6eBFC4f2B92526d6Aa6F75153b66D1E119696b27" target="_blank" rel="noopener noreferrer" style={{color: "white"}}>
+        <p>CA: 0xee095Eb6354473E4066054c5B06c82E99fa2b96e</p>
+        <a href="https://arbiscan.io/token/0xee095Eb6354473E4066054c5B06c82E99fa2b96e" target="_blank" rel="noopener noreferrer" style={{color: "white"}}>
           View DUKE contract on Arbiscan <br />
           Contact the team: team@dukeofarbitrum.com
         </a>
@@ -83,19 +102,19 @@ function ThirdwebResources() {
       <ArticleCard
         title="About"
         href="https://x.com/dukeofarbitrum"
-        description="Learn more about the cultue coin, DUKE. is and what it is all about!"
+        description="Learn more about the onchain culture coin DUKE and what it is all about!"
       />
 
       <ArticleCard
         title="How To Buy"
-        href="https://app.uniswap.org/swap?outputCurrency=0x9623063377AD1B27544C965cCd7342f7EA7e88C7&chain=arbitru"
+        href="https://app.uniswap.org/swap?outputCurrency=0xee095Eb6354473E4066054c5B06c82E99fa2b96e&chain=arbitru"
         description="Head to Uniswap to get your pawwwwwws on some DUKE tokens or claim the airdrop if eligible."
       />
 
       <ArticleCard
         title="Arbitrum Ecosystem"
         href="https://portal.arbitrum.io/"
-        description="Learn more about the largest Ethereum Layer 2 ecosystem, Arbitrum."
+        description="Learn more about the largest Ethereum Layer 2 ecosystem, Arbitrum where swap fees are almost non-existent!"
       />
     </div>
   );
