@@ -1,53 +1,77 @@
 import Image from "next/image";
 import { ConnectButton } from "@/app/thirdweb";
-import thirdwebIcon from "@public/thirdweb.svg";
 import { client } from "./client";
 import duke from "@public/duke.svg";
+import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="p-4 pb-10 min-h-[100vh] flex items-center justify-center container max-w-screen-lg mx-auto">
-      <div className="py-20">
-        <Header />
-
-        <div className="flex justify-center mb-20">
-          <ConnectButton
-            client={client}
-            appMetadata={{
-              name: "Duke of Arbitrum",
-              url: "https://dukeofarbitrum.com",
+    <div className="flex flex-col min-h-screen relative" style={{ backgroundColor: "#28A0F0" }}>
+      {/* Content */}
+      <header className="p-4 flex justify-between items-center relative z-10">
+        <a href="/">
+          <Image
+            src={duke}
+            alt=""
+            className="w-20 h-20"
+            style={{
+              filter: "drop-shadow(0px 0px 24px #96BEDC)",
             }}
           />
-        </div>
+        </a>
+        <a href="https://app.uniswap.org/swap?outputCurrency=0x9623063377AD1B27544C965cCd7342f7EA7e88C7&chain=arbitrum" className="text-white-900 text-lg font-semibold">Buy Now</a>
+      </header>
 
-        <ThirdwebResources />
+      <main className="flex-grow p-4 pb-10 relative z-10 flex">
+        <div className="container max-w-screen-lg mx-auto">
+          <div className="py-20">
+            <Header />
+            <div className="flex justify-center mb-20">
+              <ConnectButton
+                client={client}
+                appMetadata={{
+                  name: "Duke of Arbitrum",
+                  url: "https://dukeofarbitrum.com",
+                }}
+              />
+            </div>
+            <ThirdwebResources />
+          </div>
+        </div>
+      </main>
+
+      {/* Background overlay */}
+      <div className="absolute inset-0 z-0 flex items-center justify-center">
+        <Image
+          src={duke}
+          alt="Duke Background"
+          layout="fixed"
+          width={540}
+          height={540} 
+          style={{ opacity: 0.7 }} 
+        />
       </div>
-    </main>
+
+      <footer className="bg-gray-800 text-white p-4 text-center relative z-10">
+        <p>CA: 0x6eBFC4f2B92526d6Aa6F75153b66D1E119696b27</p>
+        <a href="https://arbiscan.io/token/0x6eBFC4f2B92526d6Aa6F75153b66D1E119696b27" target="_blank" rel="noopener noreferrer" style={{color: "white"}}>
+          View DUKE contract on Arbiscan <br />
+          Contact the team: team@dukeofarbitrum.com
+        </a>
+      </footer>
+    </div>
   );
 }
 
 function Header() {
   return (
-    <header className="flex flex-col items-center mb-20 md:mb-20">
-      <Image
-        src={duke}
-        alt=""
-        className="size-[150px] md:size-[150px]"
-        style={{
-          filter: "drop-shadow(0px 0px 24px #96BEDC)",
-        }}
-      />
-
-      <h1 className="text-2xl md:text-6xl font-semibold md:font-bold tracking-tighter mb-6 text-zinc-100">
-        <span className="inline-block -skew-x-6 text-blue-500"> Duke of Arbitrum </span>
+    <header className="flex flex-col items-center mb-4 md:mb-20 relative z-10">
+      <h1 className="text-2xl md:text-6xl font-semibold md:font-bold tracking-tighter mb-2 md:mb-6 text-zinc-100">
+        <span className="inline-block -skew-x-6 text-white-900"> Duke of Arbitrum </span>
       </h1>
 
-      <p className="text-zinc-300 text-base">
-        Connect your{" "}
-        <code className="bg-zinc-800 text-zinc-300 px-2 rounded py-1 text-sm mx-1">
-          wallet
-        </code>{" "}
-        to get started.
+      <p className="text-zinc-400 text-3xl md:text-4xl mb-8">
+        Connect your wallet to get started.
       </p>
     </header>
   );
@@ -59,13 +83,13 @@ function ThirdwebResources() {
       <ArticleCard
         title="About"
         href="https://x.com/dukeofarbitrum"
-        description="Learn more about what DUKE is and how it works."
+        description="Learn more about the cultue coin, DUKE. is and what it is all about!"
       />
 
       <ArticleCard
         title="How To Buy"
-        href="https://uniswap.org"
-        description="Learn how to get your hands on some DUKE tokens or claim the airdrop if eligible."
+        href="https://app.uniswap.org/swap?outputCurrency=0x9623063377AD1B27544C965cCd7342f7EA7e88C7&chain=arbitru"
+        description="Head to Uniswap to get your pawwwwwws on some DUKE tokens or claim the airdrop if eligible."
       />
 
       <ArticleCard
@@ -86,12 +110,14 @@ function ArticleCard(props: {
     <a
       href={props.href}
       target="_blank"
-      className="flex flex-col border border-zinc-800 p-4 rounded-lg hover:bg-zinc-900 transition-colors hover:border-zinc-700"
+      className="flex flex-col border border-zinc-800 p-4 rounded-lg transition-colors"
+      style={{ backgroundColor: "#1F2937", borderColor: "#374151" }}
     >
       <article>
-        <h2 className="text-lg font-semibold mb-2">{props.title}</h2>
+        <h2 className="text-lg font-semibold mb-2 text-white">{props.title}</h2>
         <p className="text-sm text-zinc-400">{props.description}</p>
       </article>
     </a>
   );
 }
+
