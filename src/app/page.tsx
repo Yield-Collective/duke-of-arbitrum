@@ -5,7 +5,8 @@ import duke from "@public/duke.svg";
 import Link from 'next/link';
 import styles from "../styles/Home.module.css";
 import { useEffect, useState } from "react";
-
+import NavBar from './components/Navbar';
+import { useRouter } from 'next/router';
 
 const allowList = [
   {
@@ -27,19 +28,20 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen relative" style={{ backgroundColor: "#28A0F0" }}>
       {/* Content */}
-      <header className="p-4 flex justify-between items-center relative z-10">
-        <a href="/">
-          <Image
-            src={duke}
-            alt=""
-            className="w-20 h-20"
-            style={{
-              filter: "drop-shadow(0px 0px 24px #96BEDC)",
-            }}
-          />
-        </a>
-        <a href="https://app.uniswap.org/swap?outputCurrency=0xee095Eb6354473E4066054c5B06c82E99fa2b96e&chain=arbitrum" className="text-white-900 text-lg font-semibold">Buy Now</a>
-      </header>
+    <NavBar />
+    <header className="p-4 flex justify-center items-center relative z-10 pt-16">
+  <a href="/">
+    <Image
+      src={duke}
+      alt=""
+      className="w-20 h-20"
+      style={{
+        filter: "drop-shadow(0px 0px 24px #96BEDC)",
+      }}
+    />
+  </a>
+  <a href="https://app.uniswap.org/swap?outputCurrency=0xee095Eb6354473E4066054c5B06c82E99fa2b96e&chain=arbitrum" className="text-black-900 text-lg font-semibold">Buy Now</a>
+</header>
 
       <main className="flex-grow p-4 pb-10 relative z-10 flex">
         <div className="container max-w-screen-lg mx-auto">
@@ -89,10 +91,12 @@ function Header() {
         <span className="inline-block -skew-x-6 text-white-900"> Duke of Arbitrum </span>
       </h1>
 
-      <p className="text-zinc-400 text-3xl md:text-4xl mb-8">
+      <p className="text-white-800 text-3xl md:text-4xl mb-8">
         Connect your wallet to get started.
       </p>
-    </header>
+      <div>
+    </div>
+  </header>
   );
 }
 
