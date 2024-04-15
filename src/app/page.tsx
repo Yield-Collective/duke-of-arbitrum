@@ -8,22 +8,6 @@ import { useEffect, useState } from "react";
 import NavBar from './components/Navbar';
 import { useRouter } from 'next/router';
 
-const allowList = [
-  {
-    "address": "0xfba2e3bfde2dbb2c70dc79b4d7126b6190770f94",
-    "maxClaimable": "1500000"
-  },
-  {
-    "address": "0x6fb304644f3292331dba28d9114059fbbe90664c",
-    "maxClaimable": "1500000"
-  },
-  {
-    "address": "0x470d3f3072370a67727225ca3a3aea3cff8c439e",
-    "maxClaimable": "1500000"
-  }
-];
-
-
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen relative" style={{ backgroundColor: "#28A0F0" }}>
@@ -102,23 +86,23 @@ function Header() {
 
 function ThirdwebResources() {
   return (
-    <div className="grid gap-4 lg:grid-cols-3 justify-center">
+    <div className="grid gap-4 lg:grid-cols-3 justify-center items-center text-center">
       <ArticleCard
         title="About"
         href="https://x.com/dukeofarbitrum"
-        description="Learn more about the onchain culture coin DUKE and what it is all about!"
+        description="Learn more about the onchain culture coin DUKE and what it is all about."
       />
 
       <ArticleCard
-        title="How To Buy"
+        title="Buy DUKE"
         href="https://app.uniswap.org/swap?outputCurrency=0xee095Eb6354473E4066054c5B06c82E99fa2b96e&chain=arbitru"
-        description="Head to Uniswap to get your pawwwwwws on some DUKE tokens or claim the airdrop if eligible."
+        description="Head to Uniswap or Camelot to get your pawwwwwws on some DUKE tokens!"
       />
 
       <ArticleCard
         title="Arbitrum Ecosystem"
         href="https://portal.arbitrum.io/"
-        description="Learn more about the largest Ethereum Layer 2 ecosystem, Arbitrum where swap fees are almost non-existent!"
+        description="Learn more about Arbitrum, the leading Ethereum Layer 2 ecosystem."
       />
     </div>
   );
@@ -133,7 +117,7 @@ function ArticleCard(props: {
     <a
       href={props.href}
       target="_blank"
-      className="flex flex-col border border-zinc-800 p-4 rounded-lg transition-colors"
+      className="flex flex-col justify-center items-center text-center border border-zinc-800 p-4 rounded-lg transition-colors"
       style={{ backgroundColor: "#1F2937", borderColor: "#374151" }}
     >
       <article>
