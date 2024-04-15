@@ -3,10 +3,12 @@ import { ConnectButton } from "@/app/thirdweb";
 import { client } from "./client";
 import duke from "@public/duke.svg";
 import Link from 'next/link';
-import styles from "../styles/Home.module.css";
-import { useEffect, useState } from "react";
+import styles from "./Home.module.css";
 import NavBar from './components/Navbar';
-import { useRouter } from 'next/router';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTelegramPlane } from '@fortawesome/free-brands-svg-icons';
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'; // Placeholder for "X"
+import camelotLogo from '@public/camelot-logo.png';
 
 export default function Home() {
   return (
@@ -17,7 +19,7 @@ export default function Home() {
   <a href="/">
     <Image
       src={duke}
-      alt=""
+      alt="DUKE"
       className="w-20 h-20"
       style={{
         filter: "drop-shadow(0px 0px 24px #96BEDC)",
@@ -53,13 +55,21 @@ export default function Home() {
           layout="fixed"
           width={540}
           height={540} 
-          style={{ opacity: 0.7 }} 
+          style={{ opacity: 0.6 }} 
         />
       </div>
 
       <footer className="bg-gray-800 text-white p-4 text-center relative z-10">
+        <div className="flex justify-center gap-4 mb-4">
+          <a href="https://x.com/dukeofarbitrum" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faExternalLinkAlt} size="lg" />
+          </a>
+          <a href="https://t.me/+L1dTzvPXOw9hOGIx" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faTelegramPlane} size="lg" />
+          </a>
+        </div>
         <p>CA: 0xee095Eb6354473E4066054c5B06c82E99fa2b96e</p>
-        <a href="https://arbiscan.io/token/0xee095Eb6354473E4066054c5B06c82E99fa2b96e" target="_blank" rel="noopener noreferrer" style={{color: "white"}}>
+        <a href="https://arbiscan.io/token/0xee095Eb6354473E4066054c5B06c82E99fa2b96e" target="_blank" rel="noopener noreferrer">
           View DUKE contract on Arbiscan <br />
           Contact the team: team@dukeofarbitrum.com
         </a>
@@ -83,6 +93,16 @@ function Header() {
   </header>
   );
 }
+
+// Swap on Camelot section with direct SVG import:
+<div className="bg-blue-900 text-white text-center py-4">
+  <Link href="https://camelot.exchange/swap?outputCurrency=0xee095Eb6354473E4066054c5B06c82E99fa2b96e">
+    <a target="_blank" rel="noopener noreferrer">
+      <Image src={camelotLogo.src} alt="Camelot" width={50} height={50} />
+      <p>Swap on Camelot</p>
+    </a>
+  </Link>
+</div>
 
 function ThirdwebResources() {
   return (
