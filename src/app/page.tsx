@@ -8,14 +8,13 @@ import NavBar from './components/Navbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTelegramPlane } from '@fortawesome/free-brands-svg-icons';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'; // Placeholder for "X"
-import camelotLogo from '@public/camelot-logo.png';
+import camelot from "@public/camelot-logo.svg";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen relative" style={{ backgroundColor: "#28A0F0" }}>
-      {/* Content */}
     <NavBar />
-    <header className="p-4 flex justify-center items-center relative z-10 pt-16">
+    <header className="p-4 flex justify-between items-center relative z-10 pt-16">
   <a href="/">
     <Image
       src={duke}
@@ -26,8 +25,7 @@ export default function Home() {
       }}
     />
   </a>
-  <a href="https://app.uniswap.org/swap?outputCurrency=0xee095Eb6354473E4066054c5B06c82E99fa2b96e&chain=arbitrum" className="text-black-900 text-lg font-semibold">Buy Now</a>
-</header>
+  <a href="https://app.uniswap.org/swap?outputCurrency=0xee095Eb6354473E4066054c5B06c82E99fa2b96e&chain=arbitrum" className="text-black-900 text-2xl font-bold">Buy Now</a></header>  
 
       <main className="flex-grow p-4 pb-10 relative z-10 flex">
         <div className="container max-w-screen-lg mx-auto">
@@ -46,8 +44,6 @@ export default function Home() {
           </div>
         </div>
       </main>
-
-      {/* Background overlay */}
       <div className="absolute inset-0 z-0 flex items-center justify-center">
         <Image
           src={duke}
@@ -84,21 +80,17 @@ function Header() {
       <h1 className="text-2xl md:text-6xl font-semibold md:font-bold tracking-tighter mb-2 md:mb-6 text-zinc-100">
         <span className="inline-block -skew-x-6 text-white-900"> Duke of Arbitrum </span>
       </h1>
-
-      <p className="text-white-800 text-3xl md:text-4xl mb-8">
-        Connect your wallet to get started.
-      </p>
       <div>
     </div>
   </header>
   );
 }
 
-// Swap on Camelot section with direct SVG import:
+
 <div className="bg-blue-900 text-white text-center py-4">
   <Link href="https://camelot.exchange/swap?outputCurrency=0xee095Eb6354473E4066054c5B06c82E99fa2b96e">
     <a target="_blank" rel="noopener noreferrer">
-      <Image src={camelotLogo.src} alt="Camelot" width={50} height={50} />
+    <Image src="@/public/camelot-logo.svg" alt="Camelot" />
       <p>Swap on Camelot</p>
     </a>
   </Link>
