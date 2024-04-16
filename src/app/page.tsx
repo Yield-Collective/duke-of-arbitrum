@@ -2,31 +2,33 @@ import Image from "next/image";
 import { ConnectButton } from "@/app/thirdweb";
 import { client } from "./client";
 import duke from "@public/duke.svg";
+import uniswap from "@public/uniswap_logo_pink.svg";
 import Link from 'next/link';
 import styles from "./Home.module.css";
 import NavBar from './components/Navbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTelegramPlane } from '@fortawesome/free-brands-svg-icons';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'; // Placeholder for "X"
-import camelot from "@public/camelot-logo.svg";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen relative" style={{ backgroundColor: "#28A0F0" }}>
     <NavBar />
     <header className="p-4 flex justify-between items-center relative z-10 pt-16">
-  <a href="/">
+    <div className="flex flex-col items-center">
+  <p className="text-1xl font-bold mb-1">Buy on Uniswap</p>
+  <a href="https://app.uniswap.org/swap?outputCurrency=0xee095Eb6354473E4066054c5B06c82E99fa2b96e&chain=arbitrum">
     <Image
-      src={duke}
-      alt="DUKE"
-      className="w-20 h-20"
+      src={uniswap}
+      alt="Uniswap"
+      className="w-40 h-40 mb-1"
       style={{
-        filter: "drop-shadow(0px 0px 24px #96BEDC)",
+        filter: "drop-shadow(0px 0px 24px #F50DB4)",
       }}
     />
   </a>
-  <a href="https://app.uniswap.org/swap?outputCurrency=0xee095Eb6354473E4066054c5B06c82E99fa2b96e&chain=arbitrum" className="text-black-900 text-2xl font-bold">Buy Now</a></header>  
-
+</div>
+<a href="https://app.uniswap.org/swap?outputCurrency=0xee095Eb6354473E4066054c5B06c82E99fa2b96e&chain=arbitrum" style={{ color: '#F50DB4' }} className="text-2xl font-bold">Buy Now</a></header>
       <main className="flex-grow p-4 pb-10 relative z-10 flex">
         <div className="container max-w-screen-lg mx-auto">
           <div className="py-20">
@@ -88,10 +90,10 @@ function Header() {
 
 
 <div className="bg-blue-900 text-white text-center py-4">
-  <Link href="https://camelot.exchange/swap?outputCurrency=0xee095Eb6354473E4066054c5B06c82E99fa2b96e">
+  <Link href="https://app.uniswap.org/swap?outputCurrency=0xee095Eb6354473E4066054c5B06c82E99fa2b96e&chain=arbitrum">
     <a target="_blank" rel="noopener noreferrer">
-    <Image src="@/public/camelot-logo.svg" alt="Camelot" />
-      <p>Swap on Camelot</p>
+    <Image src="@/public/uniswap_logo_pink.svg" alt="Uniswap" />
+      <p>Buy on Uniswap</p>
     </a>
   </Link>
 </div>
