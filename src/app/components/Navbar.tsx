@@ -1,17 +1,15 @@
-import React from 'react';
 import Link from 'next/link';
-import Router from 'next/router';
 
-const NavBar = () => {
+const Navbar: React.FC = () => {
   return (
-    <nav className="top-0 left-0 w-full bg-gray-800 text-white p-4 text-center relative z-10">
-      <ul className="flex justify-around">
-        <li><a href="#about" className="text-white-900 font-bold">About</a></li>
-        <li><a href="#tokenomics" className="text-white-900 font-bold">Tokenomics</a></li>
-        <li><a href="#community" className="text-white-900 font-bold">Community</a></li>
-      </ul>
+    <nav className="flex justify-center items-center p-4">
+      {/* External link */}
+      <a href="https://x.com/dukeofarbitrum" target="_blank" rel="noopener noreferrer" className="text-white text-lg flex items-center justify-center w-10 h-10 bg-gray-800 rounded-full">
+        X
+      </a>
     </nav>
   );
 };
 
-export default NavBar;
+export default Navbar;
+

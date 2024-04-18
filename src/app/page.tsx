@@ -1,34 +1,34 @@
 import Image from "next/image";
+import Link from 'next/link';
+import styles from "./Home.module.css";
+import Navbar from './components/Navbar';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTelegramPlane } from '@fortawesome/free-brands-svg-icons';
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { ConnectButton } from "@/app/thirdweb";
 import { client } from "./client";
 import duke from "@public/duke.svg";
 import uniswap from "@public/uniswap_logo_pink.svg";
-import Link from 'next/link';
-import styles from "./Home.module.css";
-import NavBar from './components/Navbar';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTelegramPlane } from '@fortawesome/free-brands-svg-icons';
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'; // Placeholder for "X"
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen relative" style={{ backgroundColor: "#28A0F0" }}>
-    <NavBar />
-    <header className="p-4 flex justify-between items-center relative z-10 pt-16">
-    <div className="flex flex-col items-center">
-  <p className="text-1xl font-bold mb-1">Buy on Uniswap</p>
-  <a href="https://app.uniswap.org/swap?outputCurrency=0xee095Eb6354473E4066054c5B06c82E99fa2b96e&chain=arbitrum">
-    <Image
-      src={uniswap}
-      alt="Uniswap"
-      className="w-40 h-40 mb-1"
-      style={{
-        filter: "drop-shadow(0px 0px 24px #F50DB4)",
-      }}
-    />
-  </a>
-</div>
-<a href="https://app.uniswap.org/swap?outputCurrency=0xee095Eb6354473E4066054c5B06c82E99fa2b96e&chain=arbitrum" style={{ color: '#F50DB4' }} className="text-2xl font-bold">Buy Now</a></header>
+      <Navbar />
+      <header className="p-4 flex flex-col md:flex-row justify-center items-center relative z-10 pt-16">
+        <div className="flex items-center">
+          <a href="https://app.uniswap.org/swap?outputCurrency=0xee095Eb6354473E4066054c5B06c82E99fa2b96e&chain=arbitrum">
+            <Image
+              src={uniswap}
+              alt="Uniswap"
+              className="w-40 h-40 mb-1"
+              style={{
+                filter: "drop-shadow(0px 0px 24px #F50DB4)",
+              }}
+            />
+          </a>
+          <a href="https://app.uniswap.org/swap?outputCurrency=0xee095Eb6354473E4066054c5B06c82E99fa2b96e&chain=arbitrum" style={{ color: '#ffffff' }} className="text-2xl font-bold ml-2">Buy Now</a>
+        </div>
+      </header>
       <main className="flex-grow p-4 pb-10 relative z-10 flex">
         <div className="container max-w-screen-lg mx-auto">
           <div className="py-20">
@@ -66,11 +66,15 @@ export default function Home() {
             <FontAwesomeIcon icon={faTelegramPlane} size="lg" />
           </a>
         </div>
-        <p>CA: 0xee095Eb6354473E4066054c5B06c82E99fa2b96e</p>
+        
         <a href="https://arbiscan.io/token/0xee095Eb6354473E4066054c5B06c82E99fa2b96e" target="_blank" rel="noopener noreferrer">
-          View DUKE contract on Arbiscan <br />
-          Contact the team: team@dukeofarbitrum.com
+          CA: 0xee095Eb6354473E4066054c5B06c82E99fa2b96e  <br />
+          View DUKE contract on Arbiscan
         </a>
+        <p>
+        --------------------------------- <br />  
+        Contact the team: team@dukeofarbitrum.com  <br />
+        © 2024 Duke of Arbitrum</p>
       </footer>
     </div>
   );
@@ -102,21 +106,21 @@ function ThirdwebResources() {
   return (
     <div className="grid gap-4 lg:grid-cols-3 justify-center items-center text-center">
       <ArticleCard
-        title="About"
+        title="About Duke of Arbitrum"
         href="https://x.com/dukeofarbitrum"
-        description="Learn more about the onchain culture coin DUKE and what it is all about."
+        description="Learn more about how the DUKE token can solve funding for helping dogs."
       />
 
       <ArticleCard
         title="Buy DUKE"
         href="https://app.uniswap.org/swap?outputCurrency=0xee095Eb6354473E4066054c5B06c82E99fa2b96e&chain=arbitru"
-        description="Head to Uniswap or Camelot to get your pawwwwwws on some DUKE tokens!"
+        description="Head to Uniswap to get your pawwwwwws on some DUKE tokens!"
       />
 
       <ArticleCard
-        title="Arbitrum Ecosystem"
-        href="https://portal.arbitrum.io/"
-        description="Learn more about Arbitrum, the leading Ethereum Layer 2 ecosystem."
+        title="Contract Details"
+        href="https://arbiscan.io/token/0xee095Eb6354473E4066054c5B06c82E99fa2b96e"
+        description="Contract ownership renounced, liquidity locked, 10,000,000,000 total supply."
       />
     </div>
   );
@@ -141,4 +145,3 @@ function ArticleCard(props: {
     </a>
   );
 }
-
